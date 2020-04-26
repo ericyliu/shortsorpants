@@ -1,5 +1,6 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = {
   entry: './web/index.js',
@@ -28,6 +29,9 @@ module.exports = {
       filename: './index.html',
     }),
     new CopyPlugin([{ from: './web/assets', to: 'assets' }]),
+    new WebpackShellPlugin({
+      onBuildEnd: ['babel-watch server/index.js'],
+    }),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
