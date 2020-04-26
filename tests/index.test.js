@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from '../src/app';
-import { act } from 'react-dom/test-utils';
+import { render, act } from '@testing-library/react';
+import App from '../web/app';
 
 jest.mock('axios');
 

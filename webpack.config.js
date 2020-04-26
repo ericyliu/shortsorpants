@@ -2,6 +2,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  entry: './web/index.js',
   module: {
     rules: [
       {
@@ -23,10 +24,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './web/index.html',
       filename: './index.html',
     }),
-    new CopyPlugin([{ from: './src/assets', to: 'assets' }]),
+    new CopyPlugin([{ from: './web/assets', to: 'assets' }]),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],

@@ -9,7 +9,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/app.jsx
+SF:web/app.jsx
 FN:9,(anonymous_0)
 FN:13,(anonymous_1)
 FN:14,(anonymous_2)
@@ -54,7 +54,7 @@ BRF:9
 BRH:8
 end_of_record
 TN:
-SF:src/components/shortsOrPants.jsx
+SF:web/components/shortsOrPants.jsx
 FN:4,(anonymous_0)
 FN:16,(anonymous_1)
 FNF:2
@@ -86,7 +86,7 @@ BRF:8
 BRH:2
 end_of_record
 TN:
-SF:src/components/weather.jsx
+SF:web/components/weather.jsx
 FN:4,(anonymous_0)
 FNF:1
 FNH:1
@@ -105,7 +105,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:src/services/location.js
+SF:web/services/location.js
 FN:1,(anonymous_0)
 FN:3,(anonymous_1)
 FNF:2
@@ -124,7 +124,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:src/services/weather.js
+SF:web/services/weather.js
 FN:6,(anonymous_0)
 FN:13,(anonymous_1)
 FNF:2
@@ -143,7 +143,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/utils/style.js
+SF:web/utils/style.js
 FNF:0
 FNH:0
 DA:1,1
