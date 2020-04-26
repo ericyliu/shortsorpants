@@ -9,9 +9,15 @@ import { colors } from './utils/style';
 export default () => {
   const [location, setLocation] = useState(undefined);
   const [weather, setWeather] = useState(undefined);
+  const [error, setError] = useState(undefined);
   useEffect(() => {
     (async () => {
-      setLocation(await getLocation());
+      setError(undefined);
+      try {
+        setLocation(await getLocation());
+      } catch (error) {
+        setError(error);
+      }
     })();
   }, []);
   useEffect(() => {
@@ -23,7 +29,15 @@ export default () => {
   return (
     <Container>
       <Header>Shorts or Pants</Header>
-      {!weather && <h2>Hold tight as we fetch the weather for you...</h2>}
+      {error && (
+        <Error>
+          Looks like there was an error getting your location. Please turn on
+          location services and refresh this page.
+        </Error>
+      )}
+      {!weather && !error && (
+        <h2>Hold tight as we fetch the weather for you...</h2>
+      )}
       {weather && (
         <div>
           <Weather weather={weather} />
@@ -51,4 +65,12 @@ const Header = styled.h1`
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
+`;
+
+const Error = styled.p`
+  color: ${colors.error};
+  font-size: 18px;
+  max-width: 400px;
+  text-align: center;
+  line-height: 24px;
 `;
