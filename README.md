@@ -1,5 +1,7 @@
 # Shorts or Pants
 
+![Coverage Badge](coverage/badge-lines.svg)
+
 A weather app telling you whether you should wear shorts or pants today.
 
 ## Development
