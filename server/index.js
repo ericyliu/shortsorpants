@@ -1,6 +1,5 @@
 import express from 'express';
 import livereload from 'livereload';
-import path from 'path';
 import connectLivereload from 'connect-livereload';
 import { serverPort } from '../config';
 
