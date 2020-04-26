@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-export const app = <h1>Shorts or Pants</h1>;
+import App from './app';
 
 const wrapper = document.getElementById('container');
-wrapper ? ReactDOM.render(app, wrapper) : false;
+wrapper ? ReactDOM.render(<App />, wrapper) : false;
