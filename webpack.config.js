@@ -1,3 +1,4 @@
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -25,6 +26,7 @@ module.exports = {
       template: './src/index.html',
       filename: './index.html',
     }),
+    new CopyPlugin([{ from: './src/assets', to: 'assets' }]),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
