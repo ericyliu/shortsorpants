@@ -25,8 +25,9 @@ describe('when the app starts', () => {
   });
 
   it('displays the current weather', () => {
-    rendered.getByText('San Diego', { exact: false });
-    rendered.getByText('60° - 70°, with Rain');
+    rendered.getByText('San Diego');
+    rendered.getByText('60° - 70°');
+    rendered.getByText('(with rain)');
   });
 
   it('tells you to wear shorts', () => {
