@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { getLocation } from './services/location';
 import { getWeather } from './services/weather';
 
+const shortsPants = {
+  shorts: 'Shorts',
+  pants: 'Pants',
+};
+
 export default () => {
   const [location, setLocation] = useState(undefined);
   const [weather, setWeather] = useState(undefined);
@@ -25,8 +30,18 @@ export default () => {
             {weather.tempMin}° - {weather.tempMax}°
             {weather.rain ? ', with Rain' : ''}
           </p>
+          <h2>We recommend you wear:</h2>
+          <p>{shortsOrPants(weather)}</p>
         </div>
       )}
     </div>
   );
+};
+
+const shortsOrPants = (weather) => {
+  if (weather.tempMin < 60) return shortsPants.pants;
+  if (weather.rain) return shortsPants.pants;
+  if (weather.tempMax > 75) return shortsPants.shorts;
+  if ((weather.tempMax + weather.tempMin) / 2 < 65) return shortsPants.pants;
+  return shortsPants.shorts;
 };

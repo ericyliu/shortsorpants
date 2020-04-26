@@ -28,6 +28,10 @@ describe('when the app starts', () => {
     rendered.getByText('San Diego', { exact: false });
     rendered.getByText('60° - 70°, with Rain');
   });
+
+  it('tells you to wear shorts', () => {
+    rendered.getByText('Pants');
+  });
 });
 
 const testLocationData = {
