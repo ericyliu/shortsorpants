@@ -30,25 +30,3 @@ const Error = styled.p`
   text-align: center;
   line-height: 24px;
 `;
-
-const Input = styled.input`
-  width: 100%;
-  padding: 7px 15px;
-  font-size: 16px;
-  box-sizing: border-box;
-`;
-
-const Submit = styled.button`
-  font-size 16px;
-  margin: 15px auto;
-  padding: 7px 30px;
-  cursor: pointer;
-  background-color: ${colors.background};
-  border: 1px solid ${colors.text};
-  transition: color .3s, border-color .3s;
-
-  &:hover {
-    border-color: white;
-    color: white;
-  }
-`;
