@@ -7,6 +7,6 @@ module.exports = {
       "semi": true,
       "singleQuote": true,
     }],
-    "quotes": ["error", "single"]
+    "quotes": ["error", "single", { "avoidEscape": true }]
   }
 }
