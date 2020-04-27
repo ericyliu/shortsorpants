@@ -4,6 +4,12 @@
 
 A weather app telling you whether you should wear shorts or pants today.
 
+## Setup
+
+1. `yarn install` to install dependencies
+2. make a copy of `config.sample.js` and rename it to `config.js`
+3. add [OpenWeatherMap](https://openweathermap.org/) api key
+
 ## Development
 
 1. `yarn dev` to start webpack and the node server
