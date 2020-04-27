@@ -1,33 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
+import { colors } from '../utils/style';
+import LocationInput from './locationInput';
 
-export default ({ error, location, setLocation, setWeather, setError }) => {
+export default ({ error, submitLocation }) => {
   return (
-    <ErrorContainer>
+    <Container>
       <Error>{errorMessage(error)}</Error>
-      <Input
-        onChange={(e) => setLocation(e.target.value)}
-        placeholder="Location"
-      />
-      <Submit onClick={() => submitLocation(location, setWeather, setError)}>
-        Submit
-      </Submit>
-    </ErrorContainer>
+      <LocationInput submitLocation={submitLocation} />
+    </Container>
   );
 };
 
 const errorMessage = (error) => {
   if (error.message === 'Timeout expired')
-    return 'Looks like there was an error getting your location. Please turn on location services and refresh this page or enter your location below:';
-  return 'Woops! Looks like something went wrong. Please enter a location below:';
+    return 'Looks like there was an error getting your location. Please turn on location services and refresh this page or enter your location below.';
+  return 'Woops! Looks like something went wrong. Please enter a location below.';
 };
 
-const submitLocation = async (location, setWeather, setError) => {
-  if (!location) return;
-  setError(undefined);
-  setWeather(await getWeather(location));
-};
-
-const ErrorContainer = styled.div`
+const Container = styled.div`
   max-width: 400px;
   display: flex;
   flex-direction: column;

@@ -34,5 +34,5 @@ const Rain = styled.p`
   font-size: 16px;
   position: absolute;
   top: -20px;
-  right: -40px;
+  right: -50px;
 `;
