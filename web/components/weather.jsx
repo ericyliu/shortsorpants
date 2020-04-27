@@ -18,21 +18,21 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 16px;
+  font-size: 1em;
 `;
 
 const City = styled.span`
-  font-size: 20px;
+  font-size: 1.3em;
 `;
 
 const Weather = styled.h3`
-  font-size: 50px;
+  font-size: 3em;
   position: relative;
 `;
 
 const Rain = styled.p`
-  font-size: 16px;
+  font-size: 0.4em;
   position: absolute;
-  top: -20px;
-  right: -50px;
+  top: -2em;
+  right: -2em;
 `;

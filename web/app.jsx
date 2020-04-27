@@ -6,7 +6,7 @@ import LocationInput from './components/locationInput';
 import { getLocation } from './services/location';
 import { getWeather } from './services/weather';
 import styled from 'styled-components';
-import { colors } from './utils/style';
+import { colors, breakpoints } from './utils/style';
 
 export default () => {
   const [locationInput, setLocationInput] = useState(false);
@@ -20,6 +20,7 @@ export default () => {
         setError(undefined);
       } catch (error) {
         setError(error);
+        setLocationInput(true);
       }
     })();
   }, []);
@@ -27,7 +28,12 @@ export default () => {
     if (!location) return;
     setError(undefined);
     setLocationInput(false);
-    setWeather(await getWeather(location));
+    try {
+      setWeather(await getWeather(location));
+    } catch (error) {
+      setError(error);
+      setLocationInput(true);
+    }
   };
   return (
     <Container>
@@ -43,10 +49,10 @@ export default () => {
           Choose New Location
         </InputLocation>
       </HeaderContainer>
+      {error && <Error error={error} />}
       {locationInput && <LocationInput submitLocation={submitLocation} />}
-      {error && <Error error={error} submitLocation={submitLocation} />}
       {!weather && !error && !locationInput && (
-        <h2>Hold tight as we fetch the weather for you...</h2>
+        <Loading>Hold tight as we fetch the weather for you...</Loading>
       )}
       {weather && (
         <div>
@@ -68,6 +74,7 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   box-sizing: border-box;
+  font-size: 1em;
 `;
 
 const HeaderContainer = styled.div`
@@ -79,17 +86,22 @@ const HeaderContainer = styled.div`
 `;
 
 const Header = styled.h1`
-  font-size: 16px;
+  font-size: 1em;
   text-transform: uppercase;
   letter-spacing: 1px;
 `;
 
 const InputLocation = styled.a`
-  font-size: 16px;
+  font-size: 1em;
   text-decoration: underline;
   cursor: pointer;
 
   &:hover {
     font-weight: bold;
   }
+`;
+
+const Loading = styled.h2`
+  font-size: 1.2em;
+  text-align: center;
 `;

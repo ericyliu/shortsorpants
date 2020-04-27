@@ -26,11 +26,11 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 16px;
+  font-size: 1em;
 `;
 
 const ShortsOrPants = styled.p`
-  font-size: 60px;
+  font-size: 4em;
   text-transform: uppercase;
   margin-top: 15px;
 `;

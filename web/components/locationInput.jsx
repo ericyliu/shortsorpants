@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { colors } from '../utils/style';
+import { colors, breakpoints } from '../utils/style';
 
 export default ({ submitLocation }) => {
   const [location, setLocation] = useState(undefined);
@@ -20,19 +20,23 @@ const Container = styled.div`
   max-width: 400px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    max-width: 80%;
+  }
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 7px 15px;
-  font-size: 16px;
+  padding: 1em 2em;
+  font-size: 1em;
   box-sizing: border-box;
 `;
 
 const Submit = styled.button`
-  font-size 16px;
-  margin: 15px auto;
-  padding: 7px 30px;
+  font-size 1em;
+  margin: 1em auto;
+  padding: 1em 3em;
   cursor: pointer;
   background-color: ${colors.background};
   border: 1px solid ${colors.text};

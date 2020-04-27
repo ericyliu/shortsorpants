@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../utils/style';
-import LocationInput from './locationInput';
 
 export default ({ error, submitLocation }) => {
   return (
     <Container>
       <Error>{errorMessage(error)}</Error>
-      <LocationInput submitLocation={submitLocation} />
     </Container>
   );
 };
@@ -26,7 +24,7 @@ const Container = styled.div`
 
 const Error = styled.p`
   color: ${colors.error};
-  font-size: 18px;
+  font-size: 1.2em;
   text-align: center;
-  line-height: 24px;
+  line-height: 1.6em;
 `;

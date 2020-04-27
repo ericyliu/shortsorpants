@@ -3,3 +3,7 @@ export const colors = {
   text: '#2B4141',
   error: 'darkred',
 };
+
+export const breakpoints = {
+  mobile: 1000,
+};
