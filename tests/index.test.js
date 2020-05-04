@@ -34,23 +34,42 @@ describe('when the app starts', () => {
   });
 
   describe('and I select a location manually', () => {
-    beforeEach(async () => {
-      const promise = Promise.resolve();
-      fireEvent.click(rendered.getByText('Choose New Location'));
-      fireEvent.change(rendered.getByPlaceholderText('Location'), {
-        target: { value: 'New York' },
+    describe('and the call succeeds', () => {
+      beforeEach(async () => {
+        await submitLocation(rendered, 'New York');
       });
-      fireEvent.click(rendered.getByText('Submit'));
-      await act(() => promise);
+
+      it("displays the given location's weather", () => {
+        rendered.getByText('New York');
+        rendered.getByText('40° - 50°');
+        rendered.getByText('Pants');
+      });
     });
 
-    it("displays the given location's weather", () => {
-      rendered.getByText('New York');
-      rendered.getByText('40° - 50°');
-      rendered.getByText('Pants');
+    describe('and the call fails', () => {
+      beforeEach(async () => {
+        axios.get.mockImplementation(() => Promise.reject('some error'));
+        await submitLocation(rendered, 'New York');
+      });
+
+      it('should display an error message', () => {
+        rendered.getByText(
+          'Woops! Looks like something went wrong. Please enter a location below.'
+        );
+      });
     });
   });
 });
+
+const submitLocation = async (rendered, location) => {
+  const promise = Promise.resolve();
+  fireEvent.click(rendered.getByText('Choose New Location'));
+  fireEvent.change(rendered.getByPlaceholderText('Location'), {
+    target: { value: location },
+  });
+  fireEvent.click(rendered.getByText('Submit'));
+  await act(() => promise);
+};
 
 const testLocationData = {
   coords: { latitude: 0, longitude: 0 },
